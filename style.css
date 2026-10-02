@@ -1,0 +1,310 @@
+:root {
+  --bg-color: #f7fafc;
+  --card-bg: #ffffff;
+  --text-color: #2d3748;
+  --subtext-color: #718096;
+  --border-color: #e2e8f0;
+  --primary-color: #3182ce;
+  --success-color: #38a169;
+  --danger-color: #e53e3e;
+  --warning-color: #d69e2e;
+  --inst-bg: #edf2f7;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a202c;
+  --card-bg: #2d3748;
+  --text-color: #f7fafc;
+  --subtext-color: #cbd5e0;
+  --border-color: #4a5568;
+  --inst-bg: #171923;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#app-container { width: 100%; max-width: 650px; }
+
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.user-profile-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* --- تصميم بطاقات العملات الثلاث المميزة --- */
+.currency-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 5px 0;
+}
+
+.currency-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-color);
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.currency-icon {
+  font-size: 1.3rem;
+}
+
+.currency-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.currency-label {
+  font-size: 0.7rem;
+  color: var(--subtext-color);
+}
+
+.currency-value {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.stars-card .currency-value { color: var(--warning-color); }
+.gems-card .currency-value { color: #ecc94b; }
+.credits-card .currency-value { color: var(--primary-color); }
+
+/* --- صالة انتظار الامتحان --- */
+.exam-lounge-card {
+  border: 2px solid var(--warning-color);
+  transition: all 0.3s ease;
+}
+
+.exam-lounge-card.pulse-border {
+  animation: pulseGlow 2s infinite alternate;
+}
+
+.exam-lounge-card.exam-ready {
+  border-color: var(--success-color);
+  background: rgba(56, 161, 105, 0.08);
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 4px rgba(214, 158, 46, 0.3); }
+  100% { box-shadow: 0 0 14px rgba(214, 158, 46, 0.8); }
+}
+
+.lounge-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: start;
+}
+
+.lounge-icon {
+  font-size: 2rem;
+}
+
+/* --- مؤشر اتصال المستخدمين للأدمن --- */
+.user-status-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-indicator.online {
+  background-color: var(--success-color);
+  box-shadow: 0 0 8px var(--success-color);
+}
+
+.status-indicator.offline {
+  background-color: #888888;
+}
+
+.stats-bar { font-size: 0.9rem; font-weight: bold; text-align: center; color: var(--subtext-color); }
+.nav-controls { display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap; }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hidden { display: none !important; }
+
+h1, h2, h3 { text-align: center; margin-bottom: 15px; }
+.instruction { text-align: center; color: var(--subtext-color); margin-bottom: 20px; }
+
+.subjects-grid, .shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.subject-btn { background-color: var(--primary-color); color: white; }
+.subject-btn:hover { opacity: 0.9; }
+
+.secondary-btn { background-color: var(--border-color); color: var(--text-color); }
+.success-btn { background-color: var(--success-color); color: white; }
+.cancel-btn { background-color: var(--danger-color); color: white; }
+
+.actions { display: flex; gap: 10px; margin-top: 20px; }
+.actions-vertical { display: flex; flex-direction: column; gap: 10px; }
+
+.timer-display {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-color);
+  margin: 20px 0;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin-top: 5px;
+}
+
+.form-group { margin-bottom: 15px; }
+
+/* --- تصميم زر الثيم --- */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.theme-switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #3182ce;
+  transition: .4s;
+  border-radius: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.slider .icon { font-size: 14px; user-select: none; }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+input:checked + .slider { background-color: #2b6cb0; }
+input:checked + .slider:before { transform: translateX(30px); }
+
+/* --- تنسيقات شاشة التعليمات البارزة --- */
+.instructions-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.inst-box {
+  background: var(--inst-bg);
+  border-inline-start: 4px solid var(--primary-color);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: start;
+}
+
+.inst-box h3 {
+  text-align: start;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.inst-box p {
+  line-height: 1.6;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.inst-box p:last-child { margin-bottom: 0; }
+
+/* --- المتجر والسجل --- */
+.shop-item {
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shop-item-img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
+.shop-item-price { color: var(--warning-color); font-weight: bold; margin: 5px 0; }
+.shop-item-script { font-size: 0.8rem; color: var(--subtext-color); }
+
+.history-header { display: flex; justify-content: space-between; align-items: center; }
+.history-list { list-style: none; margin-top: 15px; }
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+.history-item.failed { color: var(--danger-color); }
+.delete-item-btn { background: none; border: none; color: var(--danger-color); cursor: pointer; }
+.small-btn { padding: 5px 10px; font-size: 0.8rem; }
